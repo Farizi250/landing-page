@@ -3,72 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Guardian Tales - Adventure Awaits</title>
+    <title>Roblox Game</title>
 
     <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #0b1224;
+            background: #111;
             color: white;
-            overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
+        /* Navbar */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 75px;
-
+            height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             padding: 0 8%;
-
-            background: rgba(7, 12, 25, 0.75);
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-
-            z-index: 1000;
+            background: #181818;
         }
 
         .logo {
-            font-size: 23px;
+            font-size: 25px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
         .logo span {
-            color: #ffd45c;
+            color: #e63946;
         }
 
         nav ul {
@@ -77,1480 +43,186 @@
             list-style: none;
         }
 
-        nav ul li a {
-            color: #d8deeb;
-            font-size: 14px;
-            font-weight: bold;
-            transition: 0.3s;
+        nav a {
+            color: white;
+            text-decoration: none;
         }
 
-        nav ul li a:hover {
-            color: #ffd45c;
+        nav a:hover {
+            color: #e63946;
         }
 
-
-        /* =========================
-           HERO
-        ========================= */
-
+        /* Hero */
         .hero {
-            min-height: 100vh;
-
+            min-height: 500px;
             display: flex;
             align-items: center;
-
-            padding: 120px 8% 80px;
-
-            position: relative;
-
-            background:
-                radial-gradient(
-                    circle at 80% 25%,
-                    rgba(91, 135, 220, 0.45),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 15% 80%,
-                    rgba(153, 79, 170, 0.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #101b35,
-                    #182b4d,
-                    #10182d
-                );
-
-            overflow: hidden;
+            padding: 60px 8%;
+            background: linear-gradient(120deg, #151515, #292929);
         }
 
-        .hero::before {
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            right: -180px;
-            top: 100px;
-
-            background: rgba(255, 212, 92, 0.12);
-
-            border-radius: 50%;
-
-            filter: blur(5px);
-        }
-
-        .hero-content {
-            max-width: 700px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .welcome {
-            color: #ffd45c;
-
-            font-size: 14px;
-            font-weight: bold;
-
-            letter-spacing: 5px;
-
-            margin-bottom: 20px;
+        .hero-text {
+            max-width: 550px;
         }
 
         .hero h1 {
-            font-size: 70px;
-            line-height: 1.05;
-
-            margin-bottom: 25px;
-
-            text-shadow:
-                0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .hero h1 span {
-            color: #ffd45c;
-        }
-
-        .hero p {
-            color: #cbd5e8;
-
-            max-width: 650px;
-
-            font-size: 18px;
-            line-height: 1.8;
-
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-
-            padding: 15px 30px;
-
-            border-radius: 30px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #ffd45c;
-            color: #182238;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 15px 30px rgba(255,212,92,0.25);
-        }
-
-        .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.05);
-
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.12);
-        }
-
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-
-            padding: 30px 8%;
-
-            background: #0c1427;
-
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .stat {
-            text-align: center;
-
-            padding: 20px;
-        }
-
-        .stat h3 {
-            color: #ffd45c;
-
-            font-size: 30px;
-
-            margin-bottom: 5px;
-        }
-
-        .stat p {
-            color: #8996ad;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           GLOBAL SECTION
-        ========================= */
-
-        section {
-            scroll-margin-top: 75px;
-        }
-
-        .section {
-            padding: 110px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-
-            font-size: 42px;
-
-            margin-bottom: 15px;
-        }
-
-        .section-title span {
-            color: #ffd45c;
-        }
-
-        .section-description {
-            max-width: 750px;
-
-            margin: 0 auto 60px;
-
-            text-align: center;
-
-            color: #9da9be;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            background:
-                radial-gradient(
-                    circle at 20% 30%,
-                    rgba(71, 102, 170, 0.2),
-                    transparent 35%
-                ),
-                #10192e;
-        }
-
-        .about-container {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-        }
-
-        .about-box {
-            padding: 35px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.08),
-                    rgba(255,255,255,0.025)
-                );
-
-            border: 1px solid rgba(255,255,255,0.1);
-
-            backdrop-filter: blur(10px);
-        }
-
-        .about-box h3 {
-            font-size: 28px;
-
+            font-size: 55px;
             margin-bottom: 20px;
         }
 
-        .about-box p {
-            color: #b6c0d3;
+        .hero h1 span {
+            color: #e63946;
+        }
 
-            line-height: 1.8;
+        .hero p {
+            color: #ccc;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
+        .button {
+            display: inline-block;
+            background: #e63946;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #c92f3c;
+        }
+
+        /* About */
+        .about {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 35px;
             margin-bottom: 15px;
         }
 
-        .about-visual {
-            min-height: 350px;
-
-            border-radius: 25px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                radial-gradient(
-                    circle,
-                    #506fa9,
-                    #1d2e50 45%,
-                    #111a30 75%
-                );
-
-            box-shadow:
-                inset 0 0 80px rgba(255,255,255,0.08),
-                0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .sword {
-            font-size: 130px;
-
-            filter:
-                drop-shadow(
-                    0 0 25px rgba(255,212,92,0.6)
-                );
-        }
-
-
-        /* =========================
-           STORY
-        ========================= */
-
-        .story {
-            background: #0b1222;
-        }
-
-        .story-container {
-            max-width: 950px;
-
+        .about p {
+            max-width: 700px;
             margin: auto;
+            color: #bbb;
+            line-height: 1.6;
         }
 
-        .story-item {
-            display: grid;
-
-            grid-template-columns: 100px 1fr;
-
-            gap: 30px;
-
-            padding: 30px 0;
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.08);
-        }
-
-        .story-number {
-            width: 70px;
-            height: 70px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #ffd45c;
-
-            color: #182238;
-
-            font-weight: bold;
-
-            font-size: 22px;
-        }
-
-        .story-item h3 {
-            margin-bottom: 10px;
-
-            font-size: 24px;
-        }
-
-        .story-item p {
-            color: #9da9be;
-
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-           FEATURES
-        ========================= */
-
+        /* Features */
         .features {
-            background:
-                linear-gradient(
-                    180deg,
-                    #111b31,
-                    #0d1527
-                );
-        }
-
-        .cards {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            padding: 30px 8% 80px;
+            display: flex;
+            justify-content: center;
             gap: 25px;
+            flex-wrap: wrap;
         }
 
         .card {
-            padding: 35px 30px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.08),
-                    rgba(255,255,255,0.025)
-                );
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            transition: 0.35s;
+            width: 280px;
+            padding: 30px;
+            background: #1d1d1d;
+            border-radius: 12px;
+            text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        .card h3 {
+            margin: 15px 0;
+        }
 
-            border-color: #ffd45c;
-
-            box-shadow:
-                0 20px 40px rgba(0,0,0,0.25);
+        .card p {
+            color: #aaa;
+            line-height: 1.5;
         }
 
         .icon {
             font-size: 45px;
-
-            margin-bottom: 20px;
         }
 
-        .card h3 {
-            font-size: 22px;
-
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #9da9be;
-
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-           HEROES
-        ========================= */
-
-        .heroes {
-            background: #10192e;
-        }
-
-        .hero-cards {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .hero-card {
-            overflow: hidden;
-
-            border-radius: 18px;
-
-            background: #18233a;
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            transition: 0.3s;
-        }
-
-        .hero-card:hover {
-            transform: translateY(-8px);
-
-            border-color: #ffd45c;
-        }
-
-        .hero-image {
-            height: 220px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 80px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    #526fa7,
-                    #263957
-                );
-        }
-
-        .hero-info {
-            padding: 20px;
-        }
-
-        .hero-info h3 {
-            margin-bottom: 8px;
-        }
-
-        .hero-info p {
-            color: #8996ad;
-
-            font-size: 14px;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           WORLD
-        ========================= */
-
-        .world {
-            background:
-                radial-gradient(
-                    circle at center,
-                    #263f69,
-                    #0b1222 65%
-                );
-        }
-
-        .world-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .world-card {
-            min-height: 260px;
-
-            padding: 30px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: flex-end;
-
-            border-radius: 22px;
-
-            overflow: hidden;
-
-            position: relative;
-
-            background:
-                linear-gradient(
-                    160deg,
-                    #496b9d,
-                    #182942 70%
-                );
-
-            transition: 0.3s;
-        }
-
-        .world-card:nth-child(2) {
-            background:
-                linear-gradient(
-                    160deg,
-                    #806c9f,
-                    #241d3c 70%
-                );
-        }
-
-        .world-card:nth-child(3) {
-            background:
-                linear-gradient(
-                    160deg,
-                    #5c8b83,
-                    #182d2d 70%
-                );
-        }
-
-        .world-card:hover {
-            transform: scale(1.03);
-        }
-
-        .world-card h3 {
-            font-size: 25px;
-
-            margin-bottom: 10px;
-        }
-
-        .world-card p {
-            color: #d1d8e5;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           GALLERY
-        ========================= */
-
-        .gallery {
-            background: #0b1222;
-        }
-
-        .gallery-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 15px;
-        }
-
-        .gallery-item {
-            height: 210px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 15px;
-
-            font-size: 50px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #304a72,
-                    #17243c
-                );
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
-            transition: 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.4);
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-            padding: 120px 8%;
-
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    #3e5e93,
-                    #111a2f 65%
-                );
-        }
-
-        .cta h2 {
-            font-size: 48px;
-
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            color: #c4cede;
-
-            margin-bottom: 35px;
-
-            font-size: 17px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
+        /* Footer */
         footer {
-            padding: 35px 8%;
-
             text-align: center;
-
-            background: #070c17;
-
-            color: #69758c;
-
-            font-size: 14px;
+            padding: 25px;
+            background: #181818;
+            color: #888;
         }
-
-        footer strong {
-            color: #ffd45c;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .hero h1 {
-                font-size: 55px;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .cards {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .hero-cards {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .world-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .stats {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            nav ul {
-                gap: 12px;
-            }
-
-            nav ul li a {
-                font-size: 11px;
-            }
-
-            .hero {
-                padding-left: 6%;
-                padding-right: 6%;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 80px 6%;
-            }
-
-            .section-title {
-                font-size: 34px;
-            }
-
-            .cards,
-            .hero-cards,
-            .world-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .story-item {
-                grid-template-columns: 65px 1fr;
-                gap: 15px;
-            }
-
-            .story-number {
-                width: 55px;
-                height: 55px;
-            }
-
-            .cta h2 {
-                font-size: 36px;
-            }
-        }
-
     </style>
 </head>
 
-
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
-
     <nav>
-
-        <div class="logo">
-            GUARDIAN<span> TALES</span>
-        </div>
+        <div class="logo">ROBLOX<span>.</span></div>
 
         <ul>
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#story">Story</a>
-            </li>
-
-            <li>
-                <a href="#features">Features</a>
-            </li>
-
-            <li>
-                <a href="#heroes">Heroes</a>
-            </li>
-
-            <li>
-                <a href="#world">World</a>
-            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
         </ul>
-
     </nav>
 
-
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <div class="welcome">
-                WELCOME, GUARDIAN
-            </div>
-
-            <h1>
-                The Adventure
-                <span>Begins.</span>
-            </h1>
+        <div class="hero-text">
+            <h1>Play. Create. <span>Explore.</span></h1>
 
             <p>
-                Masuki dunia pixel RPG yang penuh petualangan,
-                misteri, puzzle, dan karakter unik. Kumpulkan
-                para hero, jelajahi dunia yang luas, dan hadapi
-                berbagai tantangan dalam perjalananmu sebagai
-                seorang Guardian.
+                Jelajahi dunia Roblox, bermain bersama teman,
+                membuat pengalaman sendiri, dan temukan berbagai
+                game menarik yang dibuat oleh komunitas.
             </p>
 
-            <div class="hero-buttons">
-
-                <a href="#about" class="btn btn-primary">
-                    Explore Game
-                </a>
-
-                <a href="#features" class="btn btn-secondary">
-                    Discover More
-                </a>
-
-            </div>
-
+            <a href="#about" class="button">Explore Now</a>
         </div>
-
     </section>
 
-
-
-    <!-- =========================
-         STATS
-    ========================= -->
-
-    <div class="stats">
-
-        <div class="stat">
-            <h3>RPG</h3>
-            <p>Adventure Experience</p>
-        </div>
-
-        <div class="stat">
-            <h3>Pixel</h3>
-            <p>Unique Art Style</p>
-        </div>
-
-        <div class="stat">
-            <h3>∞</h3>
-            <p>Adventures to Explore</p>
-        </div>
-
-        <div class="stat">
-            <h3>⚔</h3>
-            <p>Epic Battles</p>
-        </div>
-
-    </div>
-
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section class="section about" id="about">
-
-        <h2 class="section-title">
-            What is <span>Guardian Tales?</span>
-        </h2>
-
-        <p class="section-description">
-            Sebuah petualangan RPG dengan dunia pixel yang
-            penuh cerita, karakter, teka-teki, dan pertarungan.
-        </p>
-
-
-        <div class="about-container">
-
-            <div class="about-box">
-
-                <h3>
-                    A Pixel Adventure
-                </h3>
-
-                <p>
-                    Guardian Tales membawa pemain ke sebuah dunia
-                    yang dipenuhi berbagai kerajaan, dungeon,
-                    karakter unik, serta cerita yang terus berkembang.
-                </p>
-
-                <p>
-                    Selain pertarungan, pemain juga dapat menjelajahi
-                    lingkungan, menyelesaikan puzzle, mencari rahasia,
-                    dan menemukan berbagai kejutan.
-                </p>
-
-                <p>
-                    Setiap perjalanan memberikan pengalaman berbeda
-                    dan membuat dunia game terasa lebih hidup.
-                </p>
-
-            </div>
-
-
-            <div class="about-visual">
-
-                <div class="sword">
-                    ⚔️
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         STORY
-    ========================= -->
-
-    <section class="section story" id="story">
-
-        <h2 class="section-title">
-            Your <span>Journey</span>
-        </h2>
-
-        <p class="section-description">
-            Setiap perjalanan memiliki awal. Bersiaplah menghadapi
-            berbagai tantangan yang menunggumu.
-        </p>
-
-
-        <div class="story-container">
-
-            <div class="story-item">
-
-                <div class="story-number">
-                    01
-                </div>
-
-                <div>
-                    <h3>
-                        The Beginning
-                    </h3>
-
-                    <p>
-                        Perjalanan seorang Guardian dimulai dari
-                        sebuah dunia yang sedang menghadapi ancaman.
-                        Sebuah tugas besar menanti di depan.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="story-item">
-
-                <div class="story-number">
-                    02
-                </div>
-
-                <div>
-                    <h3>
-                        Explore the World
-                    </h3>
-
-                    <p>
-                        Jelajahi berbagai lokasi, dungeon, dan
-                        lingkungan dengan karakter serta rahasia
-                        yang berbeda di setiap tempat.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="story-item">
-
-                <div class="story-number">
-                    03
-                </div>
-
-                <div>
-                    <h3>
-                        Meet New Heroes
-                    </h3>
-
-                    <p>
-                        Temui berbagai karakter dengan kemampuan,
-                        cerita, dan kepribadian yang berbeda.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="story-item">
-
-                <div class="story-number">
-                    04
-                </div>
-
-                <div>
-                    <h3>
-                        Face the Challenge
-                    </h3>
-
-                    <p>
-                        Gunakan strategi dan kemampuan tim untuk
-                        menghadapi musuh serta tantangan yang
-                        semakin sulit.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         FEATURES
-    ========================= -->
-
-    <section class="section features" id="features">
-
-        <h2 class="section-title">
-            Game <span>Features</span>
-        </h2>
-
-        <p class="section-description">
-            Berbagai elemen yang membuat petualangan Guardian Tales
-            terasa berbeda.
-        </p>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="icon">
-                    ⚔️
-                </div>
-
-                <h3>
-                    Action Combat
-                </h3>
-
-                <p>
-                    Hadapi berbagai musuh dengan pertarungan
-                    yang membutuhkan gerakan dan strategi.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    🧩
-                </div>
-
-                <h3>
-                    Puzzle
-                </h3>
-
-                <p>
-                    Gunakan kemampuan berpikir untuk menyelesaikan
-                    berbagai teka-teki yang tersebar di dunia.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    🌎
-                </div>
-
-                <h3>
-                    Exploration
-                </h3>
-
-                <p>
-                    Jelajahi area yang berbeda dan temukan
-                    rahasia yang tersembunyi.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    👥
-                </div>
-
-                <h3>
-                    Unique Characters
-                </h3>
-
-                <p>
-                    Temukan banyak karakter dengan kemampuan
-                    dan cerita yang berbeda.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    🏰
-                </div>
-
-                <h3>
-                    Dungeons
-                </h3>
-
-                <p>
-                    Masuki berbagai dungeon dan hadapi
-                    tantangan yang ada di dalamnya.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    💎
-                </div>
-
-                <h3>
-                    Collect & Upgrade
-                </h3>
-
-                <p>
-                    Kembangkan tim dan persiapkan karakter
-                    untuk menghadapi perjalanan berikutnya.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         HEROES
-    ========================= -->
-
-    <section class="section heroes" id="heroes">
-
-        <h2 class="section-title">
-            Meet the <span>Heroes</span>
-        </h2>
-
-        <p class="section-description">
-            Setiap hero memiliki kemampuan dan gaya bertarung
-            yang membuat mereka berbeda.
-        </p>
-
-
-        <div class="hero-cards">
-
-            <div class="hero-card">
-
-                <div class="hero-image">
-                    🛡️
-                </div>
-
-                <div class="hero-info">
-
-                    <h3>
-                        Guardian
-                    </h3>
-
-                    <p>
-                        Seorang Guardian yang memulai perjalanan
-                        untuk menghadapi berbagai ancaman.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-card">
-
-                <div class="hero-image">
-                    🧙
-                </div>
-
-                <div class="hero-info">
-
-                    <h3>
-                        Mage
-                    </h3>
-
-                    <p>
-                        Menggunakan kekuatan sihir untuk
-                        membantu tim dalam pertempuran.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-card">
-
-                <div class="hero-image">
-                    🏹
-                </div>
-
-                <div class="hero-info">
-
-                    <h3>
-                        Ranger
-                    </h3>
-
-                    <p>
-                        Menyerang musuh dari jarak jauh
-                        dengan serangan yang cepat.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-card">
-
-                <div class="hero-image">
-                    ⚔️
-                </div>
-
-                <div class="hero-info">
-
-                    <h3>
-                        Warrior
-                    </h3>
-
-                    <p>
-                        Mengandalkan kekuatan dan kemampuan
-                        bertarung jarak dekat.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         WORLD
-    ========================= -->
-
-    <section class="section world" id="world">
-
-        <h2 class="section-title">
-            Explore the <span>World</span>
-        </h2>
-
-        <p class="section-description">
-            Dunia yang luas dengan berbagai lingkungan
-            dan suasana yang berbeda.
-        </p>
-
-
-        <div class="world-grid">
-
-            <div class="world-card">
-
-                <h3>
-                    Kingdom
-                </h3>
-
-                <p>
-                    Tempat yang menjadi bagian penting
-                    dari perjalanan Guardian.
-                </p>
-
-            </div>
-
-
-            <div class="world-card">
-
-                <h3>
-                    Mystic Forest
-                </h3>
-
-                <p>
-                    Hutan misterius yang menyimpan
-                    berbagai rahasia.
-                </p>
-
-            </div>
-
-
-            <div class="world-card">
-
-                <h3>
-                    Ancient Ruins
-                </h3>
-
-                <p>
-                    Bangunan kuno yang penuh dengan
-                    teka-teki dan tantangan.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         GALLERY
-    ========================= -->
-
-    <section class="section gallery">
-
-        <h2 class="section-title">
-            Adventure <span>Moments</span>
-        </h2>
-
-        <p class="section-description">
-            Beberapa gambaran suasana petualangan
-            yang ada di dunia Guardian Tales.
-        </p>
-
-
-        <div class="gallery-grid">
-
-            <div class="gallery-item">
-                🏰
-            </div>
-
-            <div class="gallery-item">
-                🌲
-            </div>
-
-            <div class="gallery-item">
-                ⚔️
-            </div>
-
-            <div class="gallery-item">
-                🧙
-            </div>
-
-            <div class="gallery-item">
-                🗺️
-            </div>
-
-            <div class="gallery-item">
-                ✨
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================= -->
-
-    <section class="cta">
-
-        <h2>
-            Your Adventure Awaits
-        </h2>
+    <section class="about" id="about">
+        <h2>Tentang Roblox</h2>
 
         <p>
-            Bersiaplah menjadi Guardian dan mulai petualanganmu.
+            Roblox adalah platform yang memungkinkan pemain untuk
+            bermain berbagai pengalaman sekaligus membuat dan
+            membagikan game mereka sendiri.
         </p>
-
-        <a href="#home" class="btn btn-primary">
-            Start Adventure
-        </a>
-
     </section>
 
+    <section class="features" id="features">
 
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Play Games</h3>
+            <p>
+                Temukan berbagai macam game dan pengalaman
+                menarik untuk dimainkan.
+            </p>
+        </div>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+        <div class="card">
+            <div class="icon">🧱</div>
+            <h3>Create</h3>
+            <p>
+                Buat dunia dan game versimu sendiri menggunakan
+                berbagai tools yang tersedia.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">👥</div>
+            <h3>Play Together</h3>
+            <p>
+                Bermain dan bersosialisasi bersama teman
+                dalam berbagai pengalaman Roblox.
+            </p>
+        </div>
+
+    </section>
 
     <footer>
-
-        <p>
-            © 2026 <strong>Guardian Tales</strong> Fan Landing Page
-        </p>
-
-        <p>
-            Made for learning HTML & CSS
-        </p>
-
+        © 2026 Roblox Landing Page | Personal Project
     </footer>
-
 
 </body>
 </html>
